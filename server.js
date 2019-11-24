@@ -34,8 +34,8 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/scrapeHwDB", { useNewUrlParser: true });
-
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://saumya1:saumya1@ds249008.mlab.com:49008/heroku_68jnhpd6"
+ mongoose.connect(MONGODB_URI)
 // Routes
 
 // A GET route for scraping the echoJS website
