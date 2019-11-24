@@ -14,7 +14,7 @@ var exphbs = require("express-handlebars");
 // Require all models
 var db = require("./models");
 
-var PORT = 5000;
+var PORT = process.env.Port ||5000;
 
 // Initialize Express
 var app = express();
@@ -34,7 +34,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/scrapeHwDB", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/scrapeHwDB", { useNewUrlParser: true });
 
 // Routes
 
